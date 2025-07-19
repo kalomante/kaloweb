@@ -1,0 +1,63 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: rgb(229, 229, 229);
+  /*rgb(229, 229, 229)
+  rgb(179, 179, 179)*/
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* CSS VARIABLES */
+  --header-clip: polygon(
+    0 0,
+    100% 0,
+    75% 100%,
+    0 100%
+  ) ;
+  --title-container-bg: rgb(66, 15, 80);
+  --header-bg-color: rgb(43, 2, 54);
+
+}
+
+#app{
+  inline-size: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+}
+
+
+
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #253d53;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
