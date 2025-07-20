@@ -5,7 +5,7 @@ import MainCard from "./components/MainCard.vue";
 
 <template>
     <HeaderVue></HeaderVue>
-    <MainCard></MainCard>
+    <MainCard text="Kaloweb"></MainCard>
 </template>
 <style scoped>
 </style>

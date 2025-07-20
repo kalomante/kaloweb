@@ -1,12 +1,29 @@
 <script>
+import {ref, useTemplateRef} from 'vue';
     export default {
-        name: "MainCard"
-    }
+        name: "MainCard",
+        props: {
+            text: {
+                type: String,
+                default:"kaloweb"
+            }
+        },
+        data() {
+            return {
+            }
+        },
+        computed: {},
+        methods: {
+            },
+        watch: {},
+        emits: {}}
 </script>
 
 <template>
     <div class="pieces">
-        <div class="piece1"></div>
+        <div class="piece1" ref="piece1">
+            <div v-for="(letter, index) in text" :key="index" :class="letter" class="letter">{{ letter }}</div>
+        </div>
         <section class="card">
             <article class="life">
                 <h2 class="section-title">Vida</h2>
@@ -25,12 +42,11 @@
 }
 .pieces{
     display: grid;
-    grid-template-areas: "piece1 card";
-    grid-template-columns: 12vw 55vw;
-    gap: 20px;
+    grid-template-areas: "piece1 card .";
+    grid-template-columns: 85px 55vw;
+    gap: 75px;
     .card{
         grid-area: card;
-        margin: 0 auto;
         min-inline-size: 55vw;
         min-block-size: 75vh;
         max-inline-size: 75vw;
@@ -38,6 +54,7 @@
         color: var(--txtColor);
         border: var(--general-border);
         background-color: var(--card-bg);
+        box-shadow: 4px 4px 2px #000 inset;
         .life{
             padding-inline: 15px;
             
@@ -55,12 +72,59 @@
 }
 
 .piece1{
+    position: relative;
+    z-index: 1;
+    --informaticGreen: rgb(0, 210, 0);
     grid-area: piece1;
     border-radius: 50px;
     margin-inline-start: 10px;
     background-image: var(--display-bg);
     min-inline-size: 10px;
     min-block-size: 10px;
+    color: var(--card-bg);
+    .letter{
+        font-size: 20px;
+        position: relative;
+        z-index: -2;
+        translate: 40% -695%;
+        /* animation: fallingLetters 2s linear forwards; */
+    }
+    .K{
+        animation: fallingLetters 2s 6s linear forwards;
+    }
+    .a{
+        animation: fallingLetters 2s 5s linear forwards;
+    }
+    .l{
+        animation: fallingLetters 2s 4s linear forwards;
+    }
+    .o{
+        animation: fallingLetters 2s 3s linear forwards;
+    
+    }
+    .w{
+        animation: fallingLetters 2s 2s linear forwards;
+    }
+    .e{
+        animation: fallingLetters 2s 1s linear forwards;
+    }
+    .b{
+        animation: fallingLetters 2s linear forwards;
+    }
 }
+}
+
+@keyframes fallingLetters {
+  0%{
+    color: var(--card-bg);
+    transform: translateY(-695%);
+  }
+  66%{
+    color: var(--card-bg);
+  }
+  100%{
+    color: var(--informaticGreen);
+    transform: translateY(1200%);
+  }
 }
 </style>
